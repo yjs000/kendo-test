@@ -12,8 +12,6 @@ function App() {
 
     const excelExport = () => {
         if (_export.current !== null) {
-            console.log(_export.current)
-            _export.current.toDataURL()
             _export.current.save();
         }
     };
