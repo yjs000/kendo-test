@@ -3,7 +3,7 @@ import {useState, useEffect, useRef} from 'react'
 import axiso from "@/api/axiso.js";
 import VmsDsplCell from "@/VmsDsplCell.jsx";
 import {Grid, GridColumn, GridToolbar} from "@progress/kendo-react-grid";
-import { ExcelExport } from '@progress/kendo-react-excel-export';
+import {ExcelExport, ExcelExportColumn} from '@progress/kendo-react-excel-export';
 
 
 function App() {
@@ -44,7 +44,6 @@ function App() {
         getData();
     }, []);
 
-
     return <ExcelExport data={vmsData} ref={_export}>
         <Grid
             style={{
@@ -53,7 +52,9 @@ function App() {
             data={vmsData}
         >
             <GridToolbar>
-                <button title="Export Excel" className="k-button k-button-md k-rounded-md k-button-solid k-button-solid-primary" onClick={excelExport}>
+                <button title="Export Excel"
+                        className="k-button k-button-md k-rounded-md k-button-solid k-button-solid-primary"
+                        onClick={excelExport}>
                     Export to Excel
                 </button>
             </GridToolbar>
@@ -61,7 +62,7 @@ function App() {
             <GridColumn field="dsplDt" title="dsplDt"/>
             <GridColumn field="dsplImgStr" title="dsplImgStr" cell={VmsDsplCell}/>
         </Grid>
-    </ExcelExport>
+    </ExcelExport>;
 }
 
 export default App
